@@ -313,7 +313,8 @@ export const reducer = handleActions({
       Array.isArray(payload.data)
         ? payload.data
         : [payload.data]
-    ).concat(payload.included || []);
+    ).concat(payload.included || []
+    ).concat(payload.links || {});
 
     const newState = updateOrInsertResourcesIntoState(state, resources);
 
